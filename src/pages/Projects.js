@@ -7,9 +7,9 @@ const projects = [
     url: 'https://peppy-gumption-f09059.netlify.app/'
   },
   {
-    title: 'Admin Panel',
-    description: 'Admin panel for managing users and content with React and Tailwind.',
-    url: '#'
+    title: 'WeatherApp – Real-Time Weather Forecast with Location Support',
+    description: 'A responsive weather web app built with React and Tailwind CSS that fetches real-time weather data using an API, supports location-based search, and displays temperature, humidity, wind, and other conditions with a clean UI',
+    url: 'https://weatherapp2-u7jj.vercel.app/'
   },
   {
     title: 'Portfolio Website',
