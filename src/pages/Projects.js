@@ -7,14 +7,14 @@ const projects = [
     url: 'https://peppy-gumption-f09059.netlify.app/'
   },
   {
-    title: 'WeatherApp – Real-Time Weather Forecast with Location Support',
+    title: 'WeatherApp – Real-Time Weather Forecast ',
     description: 'A responsive weather web app built with React and Tailwind CSS that fetches real-time weather data using an API, supports location-based search, and displays temperature, humidity, wind, and other conditions with a clean UI',
     url: 'https://weatherapp2-u7jj.vercel.app/'
   },
   {
-    title: 'Portfolio Website',
-    description: 'Personal portfolio built with React and Tailwind CSS.',
-    url: '#'
+    title: 'Interactive Virtual Drum Kit – Play Beats with Your Keyboard',
+    description: 'A fun, interactive web-based drum kit built with HTML, CSS, and JavaScript—press the shown keys or buttons to play drum sounds with visual feedback.',
+    url: 'https://playful-youtiao-ec87bf.netlify.app/'
   },
 ];
 
