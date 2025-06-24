@@ -16,7 +16,7 @@ export default function Contact() {
   if (submitted) {
     return React.createElement(
       'div',
-      { className: 'max-w-xl mx-auto text-center mt-12' },
+      { className: 'w-full overflow-x-hidden px-4 sm:px-6 max-w-xl mx-auto text-center mt-12' },
       React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Thank you!'),
       React.createElement('p', null, "Your message has been received. I'll get back to you soon.")
     );
@@ -24,7 +24,7 @@ export default function Contact() {
 
   return React.createElement(
     'section',
-    { className: 'max-w-xl mx-auto mt-12' },
+    { className: 'w-full overflow-x-hidden px-4 sm:px-6 max-w-xl mx-auto mt-12' },
     React.createElement('h1', { className: 'text-4xl font-bold mb-8 text-center' }, 'Contact Me'),
     React.createElement(
       'form',
@@ -91,7 +91,7 @@ export default function Contact() {
         'button',
         {
           type: 'submit',
-          className: 'px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition',
+          className: 'w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition',
         },
         'Send'
       )
