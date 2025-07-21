@@ -18,41 +18,34 @@ function App() {
     return 'system';
   });
 
-  // Determine actual mode based on theme and system
-  const actualMode = theme === 'system' ? getSystemTheme() : theme;
+  // Compute effective mode
+  const effectiveTheme = theme === 'system' ? getSystemTheme() : theme;
 
   useEffect(() => {
-    if (actualMode === 'dark') {
+    if (effectiveTheme === 'dark') {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [actualMode]);
+  }, [effectiveTheme]);
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Listen for system changes if 'system' is selected
+  // Listen for system changes ONLY if using system theme
   useEffect(() => {
     if (theme !== 'system') return;
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const handler = () => setTheme('system'); // Triggers a re-render and update
+    const handler = () => setTheme('system'); // triggers re-render
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, [theme]);
 
-  // Button logic for cycling through modes
-  const nextTheme = () => {
-    if (theme === 'light') return setTheme('dark');
-    if (theme === 'dark') return setTheme('system');
-    return setTheme('light');
-  };
-
-  const buttonLabel =
-    theme === 'system'
-      ? `System (${actualMode === 'dark' ? 'Dark' : 'Light'} Mode)`
-      : theme.charAt(0).toUpperCase() + theme.slice(1) + ' Mode';
+  // BUTTONS for explicit user control
+  const handleSetLight = () => setTheme('light');
+  const handleSetDark = () => setTheme('dark');
+  const handleSetSystem = () => setTheme('system');
 
   return (
     <Router>
@@ -73,13 +66,29 @@ function App() {
               <NavLink to="/contact" className={({ isActive }) => isActive ? 'underline' : undefined}>Contact</NavLink>
             </li>
           </ul>
-          <button
-            aria-label="Toggle Theme"
-            onClick={nextTheme}
-            className="ml-4 px-3 py-1 border rounded text-sm"
-          >
-            {buttonLabel}
-          </button>
+          <div className="ml-4 flex items-center space-x-2">
+            <button
+              aria-label="Light Mode"
+              onClick={handleSetLight}
+              className={`px-3 py-1 border rounded text-sm ${theme === 'light' ? 'font-bold' : ''}`}
+            >
+              Light
+            </button>
+            <button
+              aria-label="Dark Mode"
+              onClick={handleSetDark}
+              className={`px-3 py-1 border rounded text-sm ${theme === 'dark' ? 'font-bold' : ''}`}
+            >
+              Dark
+            </button>
+            <button
+              aria-label="System Mode"
+              onClick={handleSetSystem}
+              className={`px-3 py-1 border rounded text-sm ${theme === 'system' ? 'font-bold' : ''}`}
+            >
+              System
+            </button>
+          </div>
         </nav>
         <main className="max-w-5xl mx-auto p-6">
           <Routes>
