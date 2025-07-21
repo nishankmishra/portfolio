@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 
 import Home from './pages/Home';
@@ -6,46 +6,25 @@ import Projects from './pages/Projects';
 import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 
-function getSystemTheme() {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 function App() {
-  // theme: 'dark' | 'light' | 'system'
-  const [theme, setTheme] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    if (saved) return saved;
-    return 'system';
-  });
-
-  // Compute effective mode
-  const effectiveTheme = theme === 'system' ? getSystemTheme() : theme;
-
+  // Always follow system theme
   useEffect(() => {
-    if (effectiveTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [effectiveTheme]);
+    const applyTheme = () => {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    };
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    applyTheme(); // Set theme on mount
 
-  // Listen for system changes ONLY if using system theme
-  useEffect(() => {
-    if (theme !== 'system') return;
+    // Listen for system theme change
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
-    const handler = () => setTheme('system'); // triggers re-render
-    mq.addEventListener('change', handler);
-    return () => mq.removeEventListener('change', handler);
-  }, [theme]);
+    mq.addEventListener('change', applyTheme);
 
-  // BUTTONS for explicit user control
-  const handleSetLight = () => setTheme('light');
-  const handleSetDark = () => setTheme('dark');
-  const handleSetSystem = () => setTheme('system');
+    return () => mq.removeEventListener('change', applyTheme);
+  }, []);
 
   return (
     <Router>
@@ -66,29 +45,6 @@ function App() {
               <NavLink to="/contact" className={({ isActive }) => isActive ? 'underline' : undefined}>Contact</NavLink>
             </li>
           </ul>
-          <div className="ml-4 flex items-center space-x-2">
-            <button
-              aria-label="Light Mode"
-              onClick={handleSetLight}
-              className={`px-3 py-1 border rounded text-sm ${theme === 'light' ? 'font-bold' : ''}`}
-            >
-              Light
-            </button>
-            <button
-              aria-label="Dark Mode"
-              onClick={handleSetDark}
-              className={`px-3 py-1 border rounded text-sm ${theme === 'dark' ? 'font-bold' : ''}`}
-            >
-              Dark
-            </button>
-            <button
-              aria-label="System Mode"
-              onClick={handleSetSystem}
-              className={`px-3 py-1 border rounded text-sm ${theme === 'system' ? 'font-bold' : ''}`}
-            >
-              System
-            </button>
-          </div>
         </nav>
         <main className="max-w-5xl mx-auto p-6">
           <Routes>
