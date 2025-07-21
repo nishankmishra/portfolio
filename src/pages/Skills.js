@@ -6,6 +6,7 @@ import {
   FaGitAlt,
   FaHtml5,
   FaJsSquare,
+  FaDatabase,
   FaTools,
   FaCloud,
   FaCloudUploadAlt,
