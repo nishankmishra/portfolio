@@ -7,18 +7,31 @@ import Skills from './pages/Skills';
 import Contact from './pages/Contact';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    return localStorage.getItem('darkMode') === 'true';
-  });
+  const [darkMode, setDarkMode] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('darkMode');
+    if (savedTheme === 'true') {
+      setDarkMode(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove('dark');
+    }
+    setHasMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hasMounted) return;
+
     if (darkMode) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
     localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
+  }, [darkMode, hasMounted]);
 
   return React.createElement(
     Router,
@@ -63,7 +76,7 @@ function App() {
           "button",
           {
             "aria-label": "Toggle Dark Mode",
-            onClick: () => setDarkMode(!darkMode),
+            onClick: () => setDarkMode(prev => !prev),
             className: "ml-4 px-3 py-1 border rounded text-sm"
           },
           darkMode ? 'Light Mode' : 'Dark Mode'
