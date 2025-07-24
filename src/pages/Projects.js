@@ -16,6 +16,11 @@ const projects = [
     description: 'A fun, interactive web-based drum kit built with HTML, CSS, and JavaScript—press the shown keys or buttons to play drum sounds with visual feedback.',
     url: 'https://playful-youtiao-ec87bf.netlify.app/'
   },
+  {
+    title: 'Microsoft Homepage Clone',
+    description: 'A fully responsive clone of Microsoft's official homepage, built using modern web technologies. This project replicates the layout, design, and navigation structure of Microsoft's site, showcasing proficiency in frontend development, pixel-perfect UI design, and responsive behavior across devices.',
+    url: 'https://friendly-dieffenbachia-3cefde.netlify.app/'
+  },
 ];
 
 export default function Projects() {
