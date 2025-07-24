@@ -3,7 +3,7 @@ import React from 'react';
 const projects = [
   {
     title: 'Real-time Chat App',
-    description: 'A WebSocket-based chat app with authentication and rooms.',
+    description: 'A responsive real-time chat application built with WebSockets, enabling instant messaging between users. Features include user authentication, the ability to join and create chat rooms, and smooth message updates across clients for a seamless communication experience.',
     url: 'https://peppy-gumption-f09059.netlify.app/'
   },
   {
