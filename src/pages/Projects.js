@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: 'Microsoft Homepage Clone',
-    description: 'A fully responsive clone of Microsoft's official homepage, built using modern web technologies. This project replicates the layout, design, and navigation structure of Microsoft's site, showcasing proficiency in frontend development, pixel-perfect UI design, and responsive behavior across devices.',
+    description: "A fully responsive clone of Microsoft's official homepage, built using modern web technologies. This project replicates the layout, design, and navigation structure of Microsoft's site, showcasing proficiency in frontend development, pixel-perfect UI design, and responsive behavior across devices.",
     url: 'https://friendly-dieffenbachia-3cefde.netlify.app/'
   },
 ];
