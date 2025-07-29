@@ -4,7 +4,7 @@ const projects = [
   {
     title: 'Real-time Chat App',
     description: 'A responsive real-time chat application built with WebSockets, enabling instant messaging between users. Features include user authentication, the ability to join and create chat rooms, and smooth message updates across clients for a seamless communication experience.',
-    url: 'https://peppy-gumption-f09059.netlify.app/'
+    url: 'https://chat-app-4d9x.vercel.app/'
   },
   {
     title: 'WeatherApp – Real-Time Weather Forecast ',
