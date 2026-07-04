@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaPaperPlane, FaCheckCircle } from 'react-icons/fa';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -14,87 +15,84 @@ export default function Contact() {
   }
 
   if (submitted) {
-    return React.createElement(
-      'div',
-      { className: 'w-full overflow-x-hidden px-4 sm:px-6 max-w-xl mx-auto text-center mt-12' },
-      React.createElement('h2', { className: 'text-3xl font-bold mb-4' }, 'Thank you!'),
-      React.createElement('p', null, "Your message has been received. I'll get back to you soon.")
+    return (
+      <section className="mx-auto max-w-lg py-24 text-center">
+        <FaCheckCircle className="mx-auto text-4xl text-violet-400" />
+        <h2 className="mt-4 font-display text-3xl font-bold text-white">Thank you!</h2>
+        <p className="mt-2 text-zinc-400">
+          Your message has been received. I'll get back to you soon.
+        </p>
+      </section>
     );
   }
 
-  return React.createElement(
-    'section',
-    { className: 'w-full overflow-x-hidden px-4 sm:px-6 max-w-xl mx-auto mt-12' },
-    React.createElement('h1', { className: 'text-4xl font-bold mb-8 text-center' }, 'Contact Me'),
-    React.createElement(
-      'form',
-      { onSubmit: handleSubmit, className: 'space-y-6' },
-      // Name
-      React.createElement(
-        'div',
-        null,
-        React.createElement(
-          'label',
-          { htmlFor: 'name', className: 'block mb-1 font-semibold' },
-          'Name'
-        ),
-        React.createElement('input', {
-          id: 'name',
-          name: 'name',
-          type: 'text',
-          required: true,
-          value: form.name,
-          onChange: handleChange,
-          className: 'w-full px-3 py-2 border rounded dark:bg-gray-800 dark:border-gray-600',
-        })
-      ),
-      // Email
-      React.createElement(
-        'div',
-        null,
-        React.createElement(
-          'label',
-          { htmlFor: 'email', className: 'block mb-1 font-semibold' },
-          'Email'
-        ),
-        React.createElement('input', {
-          id: 'email',
-          name: 'email',
-          type: 'email',
-          required: true,
-          value: form.email,
-          onChange: handleChange,
-          className: 'w-full px-3 py-2 border rounded dark:bg-gray-800 dark:border-gray-600',
-        })
-      ),
-      // Message
-      React.createElement(
-        'div',
-        null,
-        React.createElement(
-          'label',
-          { htmlFor: 'message', className: 'block mb-1 font-semibold' },
-          'Message'
-        ),
-        React.createElement('textarea', {
-          id: 'message',
-          name: 'message',
-          rows: '5',
-          required: true,
-          value: form.message,
-          onChange: handleChange,
-          className: 'w-full px-3 py-2 border rounded dark:bg-gray-800 dark:border-gray-600',
-        })
-      ),
-      // Submit Button
-      React.createElement(
-        'button',
-        {
-          type: 'submit',
-          className: 'w-full sm:w-auto px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition',
-        },
-        'Send'
-      )
-    )
+  return (
+    <section className="mx-auto max-w-lg py-16">
+      <div className="text-center">
+        <span className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-violet-400">
+          <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+          Get In Touch
+        </span>
+        <h1 className="font-display text-4xl font-bold text-white">Contact Me</h1>
+        <p className="mx-auto mt-3 max-w-sm text-zinc-400">
+          Have a project in mind or just want to say hi? Drop me a message.
+        </p>
+      </div>
+
+      <form onSubmit={handleSubmit} className="mt-10 space-y-5 rounded-2xl border border-white/10 bg-surface/60 p-6 sm:p-8">
+        <div>
+          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-zinc-300">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            required
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your name"
+            className="w-full rounded-lg border border-white/10 bg-surface2 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-violet-400/60"
+          />
+        </div>
+        <div>
+          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-zinc-300">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            value={form.email}
+            onChange={handleChange}
+            placeholder="you@example.com"
+            className="w-full rounded-lg border border-white/10 bg-surface2 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-violet-400/60"
+          />
+        </div>
+        <div>
+          <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-zinc-300">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Tell me a bit about your project..."
+            className="w-full rounded-lg border border-white/10 bg-surface2 px-3.5 py-2.5 text-sm text-white placeholder-zinc-500 outline-none transition-colors focus:border-violet-400/60"
+          />
+        </div>
+        <button
+          type="submit"
+          className="flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-violet-500 to-blue-500 px-6 py-3 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.01]"
+        >
+          <FaPaperPlane className="text-xs" />
+          Send Message
+        </button>
+      </form>
+    </section>
   );
 }
