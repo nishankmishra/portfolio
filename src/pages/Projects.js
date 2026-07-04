@@ -7,6 +7,11 @@ const projects = [
     url: 'https://www.indiacaindia.com/'
   },
   {
+    title: 'WBC Amateur Muaythai India – Official Website',
+    description: 'Developed the official website for WBC Amateur Muaythai India, featuring championship information, event management, news updates, athlete achievements, photo galleries, and a responsive user experience.',
+    url: 'https://www.wbcamateurmuaythaiindia.com/'
+  },
+  {
     title: 'Real-time Chat App',
     description: 'A responsive real-time chat application built with WebSockets, enabling instant messaging between users. Features include user authentication, the ability to join and create chat rooms, and smooth message updates across clients for a seamless communication experience.',
     url: 'https://chat-app-4d9x.vercel.app/'
