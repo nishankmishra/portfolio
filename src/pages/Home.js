@@ -137,10 +137,12 @@ export default function Home() {
           <div className="relative h-64 w-64 sm:h-80 sm:w-80">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-violet-500/30 to-blue-500/30 blur-2xl" />
             <div className="absolute inset-0 animate-floaty rounded-full border border-violet-400/30" />
-            {/* Swap this initials block for a real <img> once you have a headshot */}
-            <div className="absolute inset-4 grid place-items-center rounded-full border border-white/10 bg-surface font-display text-5xl font-bold text-white">
-              NM
-            </div>
+            
+            <img
+               src="/photo.jpg"
+               className="absolute inset-4 h-[calc(100%-2rem)] w-[calc(100%-2rem)] rounded-full object-cover border border-white/10"
+               alt="Nishank Mishra" />
+                 
             <span className="absolute left-2 top-6 h-2 w-2 rounded-full bg-violet-400" />
             <span className="absolute bottom-10 right-0 h-2 w-2 rounded-full bg-blue-400" />
 
