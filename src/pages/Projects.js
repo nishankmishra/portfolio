@@ -2,7 +2,7 @@ import React from 'react';
 
 const projects = [
   {
-    title: 'Indiaca Association of India – Official Web Platform'
+    title: 'Indiaca Association of India – Official Web Platform',
     description: 'Developed the official web application for the Indiaca Association of India featuring responsive UI, admin dashboard, tournament management, athlete rankings, news updates, and secure content management.',
     url: 'https://www.indiacaindia.com/'
   },
