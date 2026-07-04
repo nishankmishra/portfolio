@@ -79,7 +79,7 @@ function App() {
 
             <div className="hidden md:block">
               <a
-                href="/Nishank_Mishra_Resume.pdf"
+                href="/Nishank Resume.pdf"
                 download
                 className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-violet-500 to-blue-500 px-4 py-2 text-sm font-semibold text-white shadow-glow transition-transform hover:scale-[1.03]"
               >
