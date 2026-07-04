@@ -2,6 +2,11 @@ import React from 'react';
 
 const projects = [
   {
+    title: 'Indiaca Association of India – Official Web Platform'
+    description: 'Developed the official web application for the Indiaca Association of India featuring responsive UI, admin dashboard, tournament management, athlete rankings, news updates, and secure content management.',
+    url: 'https://www.indiacaindia.com/'
+  },
+  {
     title: 'Real-time Chat App',
     description: 'A responsive real-time chat application built with WebSockets, enabling instant messaging between users. Features include user authentication, the ability to join and create chat rooms, and smooth message updates across clients for a seamless communication experience.',
     url: 'https://chat-app-4d9x.vercel.app/'
